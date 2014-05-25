@@ -354,3 +354,9 @@ footer p + p {
     content: 'at http://github.com/';
   }
 }
+
+.screenshot {
+    border: 1px solid black;
+    box-shadow: black 10px 10px 10px 10px;
+    margin: 0 auto;
+}
