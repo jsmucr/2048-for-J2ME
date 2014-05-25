@@ -361,3 +361,7 @@ footer p + p {
     float: right;
     margin-left: 10px;
 }
+
+section {
+    overflow: auto;
+}
