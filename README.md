@@ -10,3 +10,5 @@ Supports Java ME based cell phones with standard keypad meeting these requiremen
 * CLDC 1.1
 * 2 MiB RAM
 * 100 KiB of storage
+
+Created using NetBeans 7.4 with Sun Wireless Toolkit 2.5.2.
