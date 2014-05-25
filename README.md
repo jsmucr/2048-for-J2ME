@@ -12,3 +12,5 @@ Supports Java ME based cell phones with standard keypad meeting these requiremen
 * 100 KiB of storage
 
 Created using NetBeans 7.4 with Sun Wireless Toolkit 2.5.2.
+
+**Download the latest release here: https://github.com/jsmucr/2048-for-J2ME/releases/latest**
