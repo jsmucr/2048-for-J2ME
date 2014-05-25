@@ -357,6 +357,7 @@ footer p + p {
 
 .screenshot {
     border: 1px solid black;
-    box-shadow: black 10px 10px 10px 10px;
-    margin: 0 auto;
+    box-shadow: black 0px 0px 10px;
+    float: right;
+    margin-left: 10px;
 }
