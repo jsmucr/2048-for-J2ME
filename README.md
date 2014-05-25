@@ -1,4 +1,4 @@
-2048-for-J2ME
+2048 for J2ME
 =============
 
 2048 game clone for Java ME based cell phones.
