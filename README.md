@@ -3,14 +3,6 @@
 
 2048 game clone for Java ME based cell phones.
 
-Supports Java ME based cell phones with standard keypad meeting these requirements:
-
-* 240x320 color screen
-* MIDP 2.0
-* CLDC 1.1
-* 2 MiB RAM
-* 100 KiB of storage
+**Download the latest release here: https://github.com/jsmucr/2048-for-J2ME/releases/latest**
 
 Created using NetBeans 7.4 with Sun Wireless Toolkit 2.5.2.
-
-**Download the latest release here: https://github.com/jsmucr/2048-for-J2ME/releases/latest**
