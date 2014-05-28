@@ -176,8 +176,9 @@ public final class Scene extends GameCanvas implements Runnable
     protected final void keyPressed(int keyCode)
     {
         super.keyPressed(keyCode);
-        notifyKeyPressed(keyCode);
-        //System.out.println(keyCode);
+        
+        final int gameKeyCode = getGameAction(keyCode);
+        notifyKeyPressed(gameKeyCode == 0 ? keyCode : gameKeyCode);
     }
 
     private void sleep()

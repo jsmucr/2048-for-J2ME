@@ -7,6 +7,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
+import javax.microedition.lcdui.Canvas;
 import javax.microedition.lcdui.Display;
 import javax.microedition.midlet.*;
 import javax.microedition.rms.RecordEnumeration;
@@ -347,18 +348,22 @@ public final class Game2048 extends MIDlet implements BoardChangeListener, UserA
                 break;
             case Scene.KEYPAD_LEFT:
             case Scene.NUMPAD_4:
+            case Canvas.LEFT:
                 canCreateNumber = board.move(Direction.LEFT);
                 break;
             case Scene.KEYPAD_DOWN:
             case Scene.NUMPAD_8:
+            case Canvas.DOWN:
                 canCreateNumber = board.move(Direction.DOWN);
                 break;
             case Scene.KEYPAD_UP:
             case Scene.NUMPAD_2:
+            case Canvas.UP:
                 canCreateNumber = board.move(Direction.UP);
                 break;
             case Scene.KEYPAD_RIGHT:
             case Scene.NUMPAD_6:
+            case Canvas.RIGHT:
                 canCreateNumber = board.move(Direction.RIGHT);
                 break;
         }
