@@ -77,7 +77,8 @@ public final class Scene extends GameCanvas implements Runnable
 
         grid = new Grid(0, 0, rows, cols, Number.WIDTH, Number.HEIGHT, NUMBER_MARGIN, ROUNDNESS);
         grid.setX((getWidth() - grid.getWidth()) / 2);
-        spacing = grid.getX();
+        //spacing = grid.getX();
+        spacing = 5;
 
         best = new Score(grid.getX() + grid.getWidth(), spacing, ROUNDNESS, true);
         score = new Score(0, spacing, ROUNDNESS, false);
