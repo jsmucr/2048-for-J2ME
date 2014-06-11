@@ -37,6 +37,7 @@ public final class Game2048 extends MIDlet implements BoardChangeListener, UserA
     private int best;
     private boolean improvedBest;
     private volatile boolean canCreateNumber = false;
+    private boolean alreadyGot2048 = false;
 
     /**
      * Metoda vyvolaná při přechodu aplikace do stavu Active.
@@ -117,6 +118,7 @@ public final class Game2048 extends MIDlet implements BoardChangeListener, UserA
                     setBest(dataStream.readInt());
                     setScore(dataStream.readInt());
                     board.loadState(dataStream);
+                    alreadyGot2048 = board.has2048();
                     loaded = true;
                     dataStream.close();
                     byteStream.close();
@@ -206,6 +208,7 @@ public final class Game2048 extends MIDlet implements BoardChangeListener, UserA
     private void resetGame()
     {
         improvedBest = false;
+        alreadyGot2048 = false;
         setScore(0);
         board.init();
     }
@@ -245,8 +248,9 @@ public final class Game2048 extends MIDlet implements BoardChangeListener, UserA
             {
                 synchronized (board)
                 {
-                    if (number == 2048)
+                    if ((number == 2048) && (!alreadyGot2048))
                     {
+                        alreadyGot2048 = true;
                         scene.createNumber(number, movement.destinationRow, movement.destinationCol, new Runnable()
                         {
                             public final void run()

@@ -437,4 +437,19 @@ public final class Board
     {
         return fieldsOccupied == 0;
     }
+
+    public final boolean has2048()
+    {
+        for (int row = 0; row < BOARD_HEIGHT; row++)
+        {
+            for (int col = 0; col < BOARD_WIDTH; col++)
+            {
+                if (board[row][col] >= 2048)
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 }
