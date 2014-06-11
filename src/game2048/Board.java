@@ -87,8 +87,8 @@ public final class Board
                 }
                 if (fieldIndex == 0)
                 {
-                    final boolean doubleVal = random.nextInt(2) == 1;
-                    createNumber(row, col, doubleVal ? BASE : BASE * 2);
+                    final boolean doubleVal = random.nextInt(10) == 0;
+                    createNumber(row, col, doubleVal ? BASE * 2 : BASE);
                     return true;
                 }
                 fieldIndex--;
