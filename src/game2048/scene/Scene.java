@@ -49,6 +49,7 @@ public final class Scene extends GameCanvas implements Runnable
     private static final int BACKGROUND = 0xFAF8EF;
     private static final int NUMBER_MARGIN = 3;
     private static final int ROUNDNESS = 4;
+    private static final int SPACING = 5;
     private final Vector listeners = new Vector(2);
     private final Vector sceneElements;
     private final Number[][] numbers;
@@ -56,7 +57,6 @@ public final class Scene extends GameCanvas implements Runnable
     private final Score score;
     private final Score best;
     private Dialog dialog;
-    private final int spacing;
     private volatile boolean paused;
     private volatile boolean stopped;
     private volatile boolean animating;
@@ -76,22 +76,22 @@ public final class Scene extends GameCanvas implements Runnable
         }
 
         grid = new Grid(0, 0, rows, cols, Number.WIDTH, Number.HEIGHT, NUMBER_MARGIN, ROUNDNESS);
-        grid.setX((getWidth() - grid.getWidth()) / 2);
-        //spacing = grid.getX();
-        spacing = 5;
+        grid.setX(getWidth() - grid.getWidth() - SPACING);
+        grid.setY(SPACING);
 
-        best = new Score(grid.getX() + grid.getWidth(), spacing, ROUNDNESS, true);
-        score = new Score(0, spacing, ROUNDNESS, false);
-        updateScorePosition();
+        final int leftPanelWidth = getWidth() - 3 * SPACING - grid.getWidth();
 
-        final Logo logo = new Logo(grid.getX(), spacing);
-        grid.setY(score.getY() + score.getHeight() + spacing);
+        final Logo logo = new Logo(0, SPACING);
+        logo.setX(SPACING + (leftPanelWidth - logo.getWidth()) / 2);
 
+        score = new Score(SPACING, logo.getY() + logo.getHeight() + SPACING, leftPanelWidth, ROUNDNESS, false);
+        best = new Score(SPACING, score.getY() + score.getHeight() + SPACING, leftPanelWidth, ROUNDNESS, true);
+        
         addToScene(logo);
         addToScene(best);
         addToScene(score);
         addToScene(grid);
-        addToScene(new ActionsPane(this, spacing));
+        addToScene(new ActionsPane(this, SPACING));
     }
 
     private void addToScene(final Object object)
@@ -413,12 +413,6 @@ public final class Scene extends GameCanvas implements Runnable
     public final void updateBest(final int best)
     {
         this.best.setScore(best);
-        updateScorePosition();
-    }
-
-    private void updateScorePosition()
-    {
-        score.setX(grid.getX() + grid.getWidth() - spacing - best.getWidth());
     }
 
     private void showDialog(final int type, final Runnable runOnDone)

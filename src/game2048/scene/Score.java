@@ -13,8 +13,8 @@ public final class Score implements Drawable
 {
 
     private static final int BACKGROUND = 0xBBADA0;
-    private static final int NUMBER_SPACING = 0;
-    private static final int PADDING = 4;
+    private static final int NUMBER_SPACING = 1;
+    private static final int PADDING = 5;
 
     private int x;
     private int y;
@@ -29,12 +29,12 @@ public final class Score implements Drawable
     private int textX;
     private int textY;
 
-    public Score(final int x, final int y, final int roundness, final boolean best) throws IOException
-    {
+    public Score(final int x, final int y, final int width, final int roundness, final boolean best) throws IOException {
         this.x = x;
         this.y = y;
         this.roundness = roundness;
-
+        this.width = width;
+        
         titleImage = Image.createImage(getClass().getResourceAsStream("images/score/" + (best ? "best" : "score") + ".png"));
         setScore(0);
     }
@@ -53,11 +53,10 @@ public final class Score implements Drawable
 
     private void updatePositions()
     {
-        width = 2 * PADDING + Math.max(titleImage.getWidth(), textDimensions.width);
         height = 3 * PADDING + titleImage.getHeight() + textDimensions.height; //textDimensions.height;
-        titleX = x - width + (width - titleImage.getWidth()) / 2;
+        titleX = x + (width - titleImage.getWidth()) / 2;
         titleY = y + PADDING;
-        textX = x - width + (width - textDimensions.width) / 2;
+        textX = x + (width - textDimensions.width) / 2;
         textY = titleY + titleImage.getHeight() + PADDING;
     }
 
@@ -67,7 +66,7 @@ public final class Score implements Drawable
     public final void draw(final Graphics graphics)
     {
         graphics.setColor(BACKGROUND);
-        graphics.fillRoundRect(x - width, y, width, height, roundness, roundness);
+        graphics.fillRoundRect(x, y, width, height, roundness, roundness);
 
         graphics.drawImage(titleImage, titleX, titleY, Graphics.LEFT | Graphics.TOP);
         ScoreDrawingTool.drawScore(score, textX, textY, NUMBER_SPACING, graphics);

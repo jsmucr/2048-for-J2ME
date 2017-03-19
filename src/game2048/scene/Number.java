@@ -14,8 +14,8 @@ import javax.microedition.lcdui.Image;
 public final class Number implements Animable, Drawable
 {
     
-    public static final int WIDTH = 50;
-    public static final int HEIGHT = 50;
+    public static final int WIDTH = 41;
+    public static final int HEIGHT = 41;
     private static final int HALF_WIDTH = WIDTH / 2;
     private static final int HALF_HEIGHT = HEIGHT / 2;
     private static final float APPEARING_DEFAULT_HORIZONTAL_MARGIN = HALF_WIDTH;
